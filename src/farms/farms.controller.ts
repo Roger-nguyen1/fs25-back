@@ -1,9 +1,9 @@
 import { Controller, Get } from '@nestjs/common';
-import { XmlService } from './xmltojs.service';
+import { FarmsService } from './farms.service';
 
 @Controller('xml')
 export class XmlController {
-  constructor(private readonly xmlService: XmlService) {}
+  constructor(private readonly farmService: FarmsService) {}
 
   @Get()
   getHello(): string {

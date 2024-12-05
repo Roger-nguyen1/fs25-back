@@ -101,10 +101,14 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
 ## TODO
 
-- Ajouter fichier .env
+- Modifier le nom du module xmltojs en farms
 - Ajouter module environment
 - Ajouter module fields et farmland
 - Ajouter module economy
+- Remodifier les fichiers task pour exécuter le parsing des fichiers xml pour save en bdd
+
+FAIT-----------------------------------------------------------------------------------------------
+- OK Ajouter fichier .env
 - OK Ajouter connection string vers mongoDB
 - OK Modifier le module xmltojs et créer un cron job pour exécuter le parsing des fichiers de save
  

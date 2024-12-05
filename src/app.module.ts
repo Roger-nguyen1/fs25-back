@@ -3,7 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ScheduleModule } from '@nestjs/schedule';
-import { XmlModule } from './xmltojs/xmltojs.module';
+import { FarmsModule } from './farms/farms.module';
 import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
@@ -15,7 +15,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     MongooseModule.forRoot(
       process.env.MONGODB_URI,
     ),
-    XmlModule,
+    FarmsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

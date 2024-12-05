@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { XmlService } from './xmltojs.service';
+import { FarmsService } from './farms.service';
 import { Farm, FarmSchema } from './farm.schema';
 import { XmlTask } from './xmltojs.task';
 
@@ -8,6 +8,6 @@ import { XmlTask } from './xmltojs.task';
   imports: [
     MongooseModule.forFeature([{ name: Farm.name, schema: FarmSchema }]),
   ],
-  providers: [XmlService, XmlTask],
+  providers: [FarmsService, XmlTask],
 })
-export class XmlModule {}
+export class FarmsModule {}

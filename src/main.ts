@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { XmlTask } from './xmltojs/xmltojs.task';
+import { XmlTask } from './farms/xmltojs.task';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

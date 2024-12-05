@@ -7,7 +7,7 @@ import { Model } from 'mongoose';
 import { Farm } from './farm.schema';
 
 @Injectable()
-export class XmlService {
+export class FarmsService {
   constructor(@InjectModel(Farm.name) private farmModel: Model<Farm>) {}
 
   async parseXmlFile(filePath: string): Promise<any> {

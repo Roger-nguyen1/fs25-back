@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Cron } from '@nestjs/schedule';
-import { XmlService } from './xmltojs.service';
+import { FarmsService } from './farms.service';
 
 // @Injectable()
 // export class XmlTask {
@@ -23,7 +23,7 @@ import { XmlService } from './xmltojs.service';
 //Pour tester et exécuter une fois la task
 @Injectable()
 export class XmlTask {
-  constructor(private readonly xmlService: XmlService) {}
+  constructor(private readonly farmsService: FarmsService) {}
 
   // Tâche planifiée
   @Cron('0 0 9-23,4 * * *') // Cron habituel
@@ -36,8 +36,8 @@ export class XmlTask {
     const filePath = '../savegame1/farms.xml'; // Chemin vers le fichier XML
     console.log('filePath : ', filePath);
     try {
-      const data = await this.xmlService.parseXmlFile(filePath);
-      await this.xmlService.saveFarmsToDb(data);
+      const data = await this.farmsService.parseXmlFile(filePath);
+      await this.farmsService.saveFarmsToDb(data);
       console.log('Farms data successfully saved to the database.');
     } catch (error) {
       console.error('Error processing XML file:', error.message);
