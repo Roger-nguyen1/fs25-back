@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Cron } from '@nestjs/schedule';
-import { FarmsService } from './farms.service';
+import { EnvironmentService } from './environment.service';
 import { InjectModel } from '@nestjs/mongoose';
 import { Log } from '../log/log.schema';
 import { Model } from 'mongoose';
@@ -8,32 +8,34 @@ import * as moment from 'moment-timezone';
 
 const updatedAt = moment().tz('Europe/Paris').format();
 
-//Pour tester et exécuter une fois la task
 @Injectable()
-export class FarmsTask {
+export class EnvironmentTask {
   constructor(
-    private readonly farmsService: FarmsService,
+    private readonly environmentService: EnvironmentService,
     @InjectModel(Log.name) private readonly logModel: Model<Log>,
   ) {}
 
-  // Tâche planifiée
-  @Cron('0 0 9-23,4 * * *') //('0 0 9-23,4 * * *') // Cron habituel // ('45 * * * * *') Test toutes les 45sec
+  // Scheduled task to run at specified intervals
+  @Cron('0 0 9-23,4 * * *')
   async handleCron() {
     await this.executeTask();
   }
 
-  // Méthode manuelle
+  // Method to execute the task manually or by the scheduler
   async executeTask() {
-    const filePath = '../savegame1/farms.xml'; // Chemin vers le fichier XML
-    console.log('filePath : ', filePath);
     try {
-      const data = await this.farmsService.parseXmlFile(filePath);
-      await this.farmsService.saveFarmsToDb(data);
-      console.log('Farms data successfully saved to the database.');
-      await this.logInfo('Farms data successfully saved to the database.');
+      await this.environmentService.loadEnvironmentData();
+      console.log(
+        'Environment data successfully loaded and saved to the database.',
+      );
+      await this.logInfo(
+        'Environment data successfully loaded and saved to the database.',
+      );
     } catch (error) {
-      console.error('Error processing XML file:', error.message);
-      await this.logError(`Error processing farm data : ${error.message}`);
+      console.error('Error processing environment data:', error.message);
+      await this.logError(
+        `Error processing environment data: ${error.message}`,
+      );
     }
   }
 

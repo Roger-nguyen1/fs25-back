@@ -14,10 +14,10 @@ export class EnvironmentService {
 
   constructor(@InjectModel(DayTime.name) dayTimeModel: Model<DayTime>) {
     this.dayTimeModel = dayTimeModel;
-    this.loadEnvironmentData();
+    //this.loadEnvironmentData(); //permet d'exécuter une fois la méthode
   }
 
-  private async loadEnvironmentData() {
+  public async loadEnvironmentData() {
     try {
       const filePath = '../savegame1/environment.xml'; // Remplacez par le chemin correct de votre fichier
       const xml = readFileSync(filePath, 'utf-8');
@@ -75,6 +75,4 @@ export class EnvironmentService {
   getWeatherForecast() {
     return this.environmentData.environment.weather[0]?.forecast[0]?.instance;
   }
-
-  // Ajoutez d'autres méthodes pour accéder à des données spécifiques
 }

@@ -14,11 +14,9 @@ import { EnvironmentModule } from './environment/environment.module';
       isGlobal: true,
     }),
     ScheduleModule.forRoot(),
-    MongooseModule.forRoot(
-      process.env.MONGODB_URI,
-    ),
+    MongooseModule.forRoot(process.env.MONGODB_URI),
     FarmsModule,
-    EnvironmentModule
+    EnvironmentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

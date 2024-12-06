@@ -4,7 +4,8 @@
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
- Farming Simulator 25 save game xml parser
+
+Farming Simulator 25 save game xml parser
 
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
     <p align="center">
@@ -101,14 +102,15 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
 ## TODO
 
-- Ajouter module environment > à tester
 - Ajouter module fields et farmland
 - Ajouter module economy
 - Remodifier les fichiers task pour exécuter le parsing des fichiers xml pour save en bdd
 
 FAIT-----------------------------------------------------------------------------------------------
+
+- OK Ajouter module environment
+- OK Ajouter des Logs en bdd pour surveiller la sauvegarde de données en bdd
 - OK Modifier le nom du module xmltojs en farms
 - OK Ajouter fichier .env
 - OK Ajouter connection string vers mongoDB
 - OK Modifier le module xmltojs et créer un cron job pour exécuter le parsing des fichiers de save
- 

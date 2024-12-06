@@ -7,16 +7,16 @@ export class EnvironmentController {
 
   @Get()
   getEnvironmentData() {
-    return this.environmentService.getEnvironmentData();
+    return; //this.environmentService.getEnvironmentData();
   }
 
   @Get('day-time')
   getDayTime() {
-    return this.environmentService.getDayTime();
+    return; //this.environmentService.getDayTime();
   }
 
   @Get('weather-forecast')
   getWeatherForecast() {
-    return this.environmentService.getWeatherForecast();
+    return; //this.environmentService.getWeatherForecast();
   }
 }
