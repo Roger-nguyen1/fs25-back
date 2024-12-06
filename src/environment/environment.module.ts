@@ -3,6 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { EnvironmentService } from './environment.service';
 import { EnvironmentController } from './environment.controller';
+import { DayTime, DayTimeSchema } from './environment-day-time.schema';
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import { EnvironmentController } from './environment.controller';
       envFilePath: '.env',
       isGlobal: true,
     }),
+    MongooseModule.forFeature([{ name: DayTime.name, schema: DayTimeSchema }]),
   ],
   controllers: [EnvironmentController],
   providers: [EnvironmentService],
