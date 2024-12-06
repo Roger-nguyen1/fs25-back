@@ -101,7 +101,7 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
 ## TODO
 
-- Ajouter module environment
+- Ajouter module environment > à tester
 - Ajouter module fields et farmland
 - Ajouter module economy
 - Remodifier les fichiers task pour exécuter le parsing des fichiers xml pour save en bdd

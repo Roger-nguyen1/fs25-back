@@ -13,7 +13,7 @@ export class EnvironmentService {
 
   private async loadEnvironmentData() {
     try {
-      const filePath = 'path/to/environment.xml'; // Remplacez par le chemin correct de votre fichier
+      const filePath = '../savegame1/environment.xml'; // Remplacez par le chemin correct de votre fichier
       const xml = readFileSync(filePath, 'utf-8');
       this.environmentData = await this.parseXmlFile(xml);
     } catch (error) {
@@ -38,11 +38,24 @@ export class EnvironmentService {
   }
 
   getDayTime() {
-    return this.environmentData.environment.dayTime;
+    const environment = this.environmentData.environment;
+    const dayTimeDatas = {
+      dayTime: environment.dayTime,
+      currentDay: environment.currentDay,
+      currentMonotonicDay: environment.currentMonotonicDay,
+      realHourTimer: environment.realHourTimer,
+      daysPerPeriod: environment.daysPerPeriod,
+      lighting: environment.lighting,
+      weather: {
+        timeSinceLastRain: environment.weather[0]?.$.timeSinceLastRain,
+      },
+    };
+
+    return dayTimeDatas;
   }
 
   getWeatherForecast() {
-    return this.environmentData.environment.weather.forecast.instance;
+    return this.environmentData.environment.weather[0]?.forecast[0]?.instance;
   }
 
   // Ajoutez d'autres méthodes pour accéder à des données spécifiques

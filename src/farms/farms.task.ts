@@ -22,7 +22,7 @@ import { FarmsService } from './farms.service';
 
 //Pour tester et exécuter une fois la task
 @Injectable()
-export class XmlTask {
+export class FarmsTask {
   constructor(private readonly farmsService: FarmsService) {}
 
   // Tâche planifiée

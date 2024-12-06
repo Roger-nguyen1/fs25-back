@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { EnvironmentService } from './environment.service';
+import { EnvironmentController } from './environment.controller';
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import { EnvironmentService } from './environment.service';
       isGlobal: true,
     }),
   ],
+  controllers: [EnvironmentController],
   providers: [EnvironmentService],
   exports: [EnvironmentService],
 })
