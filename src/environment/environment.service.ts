@@ -64,7 +64,7 @@ export class EnvironmentService {
       daysPerPeriod: environment.daysPerPeriod[0],
       lighting: environment.lighting,
       weather: {
-        timeSinceLastRain: environment.weather[0]?.$.timeSinceLastRain[0],
+        timeSinceLastRain: environment.weather[0]?.$.timeSinceLastRain,
       },
       updatedAt: updatedAt,
     };

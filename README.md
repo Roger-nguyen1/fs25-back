@@ -102,6 +102,7 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
 ## TODO
 
+- Créer le service log dans dossier /log pour logInfo et logError
 - Ajouter module fields et farmland
 - Ajouter module economy
 - Remodifier les fichiers task pour exécuter le parsing des fichiers xml pour save en bdd
